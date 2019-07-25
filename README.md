@@ -51,6 +51,7 @@ forceReducerReload(store);
 ### `injectReducer`
 
 Adds a reducer to the redux store when the wrapped component is created.  
+
 | Parameter       | Description                          |
 |-----------------|--------------------------------------|
 | options.key     | The key to inject the reducer under. |
