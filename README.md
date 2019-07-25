@@ -1,6 +1,6 @@
 # react-redux-injectors
 
-## Api Referencec
+## Api Reference
 
 ### `setupStoreForInjectors`
 Sets up the redux store to support the reducer and saga injectors. After creating your store using redux's `createStore`, call `setupStoreForInjectors` and pass in the created store:  
