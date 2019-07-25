@@ -1,8 +1,10 @@
 # react-redux-injectors
 
 ## Api Referencec
+
 ### `setupStoreForInjectors`
-Sets up the redux store to support the reducer and saga injectors. After creating your store using redux's `createStore`, call `setupStoreForInjectors` and pass in the created store:
+Sets up the redux store to support the reducer and saga injectors. After creating your store using redux's `createStore`, call `setupStoreForInjectors` and pass in the created store:  
+
 | Parameter              | Description                          |
 |------------------------|--------------------------------------|
 | store                  | The redux store created with redux's `createStore`. |
@@ -47,7 +49,8 @@ forceReducerReload(store);
 ```
 
 ### `injectReducer`
-Adds a reducer to the redux store when the wrapped component is created. 
+
+Adds a reducer to the redux store when the wrapped component is created.  
 | Parameter       | Description                          |
 |-----------------|--------------------------------------|
 | options.key     | The key to inject the reducer under. |
@@ -65,14 +68,16 @@ export default injectReducer({ key: "HomePage", reducer: homePageReducer })(Home
 ```
 
 ### `injectSaga`
-Adds a saga to the redux store when the wrapped component is created. 
+Adds a saga to the redux store when the wrapped component is created.  
+
 | Parameter       | Description                          |
 |-----------------|--------------------------------------|
 | options.key     | The key to inject the saga under. |
 | options.saga    | The saga to inject                |
 | options.mode    | Controls how the saga is injected/run                |
 
-These are the possible injection modes. It defaults to DAEMON
+These are the possible injection modes. It defaults to DAEMON  
+
 | Mode       | Description                           |
 |-----------------|---------------------------------------|
 | `DAEMON` (default)          | The saga will be started on component mount and never canceled or started again     |
@@ -89,33 +94,4 @@ class HomePage extends React.PureComponent {
 }
 
 export default injectSaga({ key: "HomePage", saga: homePageSaga })(HomePage);
-```
-
-### `setupStoreForInjectors`
-Sets up the redux store to support the reducer and saga injectors. After creating your store using redux's `createStore`, call `setupStoreForInjectors` and pass in the created store:
-| Parameter              | Description                          |
-|------------------------|--------------------------------------|
-| store                  | The redux store created with redux's `createStore`. |
-| options.createReducer  | A function that should return the root reducer. It's passed the injected reducers as the only parameter |
-| options.sagaMiddleware | The sagaMiddleware that is created with redux-saga's `createSagaMiddleware` |
-
-
-```js
-import { createStore } from "redux";
-import { setupStoreForInjectors } from "react-redux-injectors";
-
-
-function createReducer(injectedReducers = {}) {
-  const rootReducer = combineReducers({
-    ...injectedReducers,
-    // other non-injected reducers can go here...
-  });
-
-  return rootReducer;
-}
-
-const store = createStore(createReducer(), /** ... other options **/);
-
-// Allow's react-redux-injectors to work
-setupStoreForInjectors(store, { createReducer, sagaMiddleware });
 ```
