@@ -2,6 +2,7 @@
   "name": "react-redux-injectors",
   "version": "0.1.0",
   "main": "lib/index.js",
+  "types": "index.d.ts",
   "repository": "git@github.com:BenLorantfy/react-redux-injectors.git",
   "author": "Ben <benlorantfy@gmail.com>",
   "license": "MIT",
