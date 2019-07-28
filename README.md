@@ -9,7 +9,7 @@ Sets up the redux store to support the reducer and saga injectors. After creatin
 |------------------------|--------------------------------------|
 | store                  | The redux store created with redux's `createStore`. |
 | options.createReducer  | A function that should return the root reducer. It's passed the injected reducers as the only parameter |
-| options.sagaMiddleware | The sagaMiddleware that is created with redux-saga's `createSagaMiddleware` |
+| options.runSaga |  A function that runs a saga. Should ussually be `sagaMiddleware.run` |
 
 
 ```js
@@ -26,10 +26,15 @@ function createReducer(injectedReducers = {}) {
   return rootReducer;
 }
 
+const runSaga = sagaMiddleware.run;
+
 const store = createStore(createReducer(), /** ... other options **/);
 
 // Allow's react-redux-injectors to work
-setupStoreForInjectors(store, { createReducer, sagaMiddleware });
+setupStoreForInjectors(store, { 
+  createReducer,
+  runSaga,
+});
 ```
 
 ### `checkStore`
