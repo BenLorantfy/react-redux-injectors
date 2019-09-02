@@ -1,4 +1,4 @@
-**This package is depreccated, please use https://github.com/react-boilerplate/injectors instead.**
+**This package is deprecated, please use https://github.com/react-boilerplate/injectors instead.**
 
 # react-redux-injectors
 
