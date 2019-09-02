@@ -1,3 +1,5 @@
+**This package is depreccated, please use https://github.com/react-boilerplate/injectors instead.**
+
 # react-redux-injectors
 
 ## Api Reference
